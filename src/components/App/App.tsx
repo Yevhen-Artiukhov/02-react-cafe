@@ -5,6 +5,7 @@ import CafeInfo from "../CafeInfo/CafeInfo";
 import VoteOptions from "../VoteOptions/VoteOptions";
 import VoteStats from "../VoteStats/VoteStats";
 import Notification from "../Notification/Notification";
+
 import type { VoteType, Votes } from "../../types/votes";
 
 const initialVotes: Votes = {
@@ -45,11 +46,9 @@ export default function App() {
 
       {totalVotes > 0 ? (
         <VoteStats
-          good={votes.good}
-          neutral={votes.neutral}
-          bad={votes.bad}
-          total={totalVotes}
-          positive={positiveRate}
+          votes={votes}
+          totalVotes={totalVotes}
+          positiveRate={positiveRate}
         />
       ) : (
         <Notification />
